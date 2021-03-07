@@ -12,7 +12,11 @@ public class UCCInteractBridge : MonoBehaviour, IInteractableTarget, IInteractab
 
     private Animator m_Animator;
 
-
+    void Start()
+    {
+        if (m_InteractableBehavior == null) m_InteractableBehavior = GetComponent<InteractableBehavior>();
+        if (UISInteractable == null) UISInteractable = GetComponent<Opsive.UltimateInventorySystem.Interactions.Interactable>();
+    }
     public bool CanInteract(GameObject character)
     {
         return true;
